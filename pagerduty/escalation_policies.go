@@ -2,7 +2,6 @@ package pagerduty
 
 import (
 	"errors"
-	"fmt"
 	"net/http"
 )
 
@@ -47,13 +46,13 @@ type EscalationRules struct {
 
 // EscalationServices type
 type EscalationServices struct {
-	ID             string           `json:"id,omitempty"`
-	Name           string           `json:"name,omitempty"`
-	URL            string           `json:"service_url,omitempty"`
-	Key            string           `json:"service_key,omitempty"`
-	ResolveTimeout int              `json:"auto_resolve_timeout,omitempty"`
-	State          string           `json:"status,omitempty"`
-	IncidentCounts []map[string]int `json:"incident_counts,omitempty"`
+	ID             string `json:"id,omitempty"`
+	Name           string `json:"name,omitempty"`
+	URL            string `json:"service_url,omitempty"`
+	Key            string `json:"service_key,omitempty"`
+	ResolveTimeout int    `json:"auto_resolve_timeout,omitempty"`
+	State          string `json:"status,omitempty"`
+	//IncidentCounts []map[string]int `json:"incident_counts,omitempty"`
 }
 
 // EscalationOnCall type
@@ -114,8 +113,6 @@ func (s *EscalationService) OnCall(id string) ([]EscalationOnCall, *http.Respons
 	if wrapper.EscalationPolicy.EscalationOnCall == nil {
 		return nil, res, errors.New("pagerduty: escalation json object nil")
 	}
-
-	fmt.Printf("%+v", wrapper)
 
 	return wrapper.EscalationPolicy.EscalationOnCall, res, nil
 }
