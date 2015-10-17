@@ -22,9 +22,10 @@ type Client struct {
 	APIKey    string
 	BaseURL   *url.URL
 
-	Incidents *IncidentsService
-	Users     *UsersService
-	Schedules *SchedulesService
+	Incidents   *IncidentsService
+	Users       *UsersService
+	Schedules   *SchedulesService
+	Escalations *EscalationService
 }
 
 // New returns a Client with the default http.Client
@@ -48,6 +49,7 @@ func NewClient(sub, key string, httpClient *http.Client) *Client {
 	client.Incidents = &IncidentsService{client: client}
 	client.Users = &UsersService{client: client}
 	client.Schedules = &SchedulesService{client: client}
+	client.Escalations = &EscalationService{client: client}
 
 	return client
 }
