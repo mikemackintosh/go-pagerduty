@@ -27,13 +27,13 @@ type EscalationPolicies struct {
 
 // EscalationPolicy type
 type EscalationPolicy struct {
-	ID               string               `json:"id,omitempty"`
-	Name             string               `json:"name,omitempty"`
-	Rules            []EscalationRules    `json:"escalation_rules,omitempty"`
-	Services         []EscalationServices `json:"services,omitempty"`
-	EscalationOnCall []EscalationOnCall   `json:"on_call,omitempty"`
-	Loops            int                  `json:"num_loops,omitempty"`
-	Description      string               `json:"description,omitempty"`
+	ID          string               `json:"id,omitempty"`
+	Name        string               `json:"name,omitempty"`
+	Rules       []EscalationRules    `json:"escalation_rules,omitempty"`
+	Services    []EscalationServices `json:"services,omitempty"`
+	OnCall      []EscalationOnCall   `json:"on_call,omitempty"`
+	Loops       int                  `json:"num_loops,omitempty"`
+	Description string               `json:"description,omitempty"`
 }
 
 // EscalationRules type
@@ -57,10 +57,10 @@ type EscalationServices struct {
 
 // EscalationOnCall type
 type EscalationOnCall struct {
-	Level int    `json:"id,omitempty"`
+	Level int    `json:"level,omitempty"`
 	Start string `json:"start,omitempty"`
 	End   string `json:"end,omitempty"`
-	Users User   `json:"user,omitempty"`
+	User  User   `json:"user,omitempty"`
 }
 
 // EscalationOptions provides optional parameters to list requests
@@ -110,9 +110,9 @@ func (s *EscalationService) OnCall(id string) ([]EscalationOnCall, *http.Respons
 		return nil, res, err
 	}
 
-	if wrapper.EscalationPolicy.EscalationOnCall == nil {
+	if wrapper.EscalationPolicy.OnCall == nil {
 		return nil, res, errors.New("pagerduty: escalation json object nil")
 	}
 
-	return wrapper.EscalationPolicy.EscalationOnCall, res, nil
+	return wrapper.EscalationPolicy.OnCall, res, nil
 }
