@@ -9,7 +9,7 @@ import (
 	"reflect"
 	"testing"
 
-	. "github.com/danryan/go-pagerduty/pagerduty"
+	. "github.com/mikemackintosh/go-pagerduty/pagerduty"
 )
 
 var (
