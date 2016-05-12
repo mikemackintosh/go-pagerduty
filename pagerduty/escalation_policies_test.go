@@ -54,7 +54,7 @@ func TestEscalationPolicy_marshal(t *testing.T) {
 			ID:   "ABCDEF",
 			Name: "Testing ABCDEF",
 			Rules: []EscalationRules{
-				EscalationRules{
+				{
 					ID:    "RulesABC",
 					Delay: 30,
 					Rules: map[string]string{
@@ -63,7 +63,7 @@ func TestEscalationPolicy_marshal(t *testing.T) {
 				},
 			},
 			OnCall: []EscalationOnCall{
-				EscalationOnCall{
+				{
 					Level: 1,
 					Start: "today",
 					End:   "tomorrow",
@@ -74,7 +74,7 @@ func TestEscalationPolicy_marshal(t *testing.T) {
 						UserURL: "/users/ABC",
 					},
 				},
-				EscalationOnCall{
+				{
 					Level: 2,
 					Start: "today",
 					End:   "tomorrow",
