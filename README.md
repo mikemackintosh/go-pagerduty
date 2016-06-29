@@ -1,7 +1,7 @@
 # go-pagerduty
 
 [![Build Status](https://api.travis-ci.org/danryan/go-pagerduty.png)](http://travis-ci.org/danryan/go-pagerduty)
-[![go-pagerduty](http://goreportcard.com/badge/mikemackintosh/go-pagerduty)](http://goreportcard.com/badge/mikemackintosh/go-pagerduty)
+[![go-pagerduty](https://goreportcard.com/badge/mikemackintosh/go-pagerduty)](http://goreportcard.com/badge/mikemackintosh/go-pagerduty)
 
 PagerDuty API client in Go.
 
